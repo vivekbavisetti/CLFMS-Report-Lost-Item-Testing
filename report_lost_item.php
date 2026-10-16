@@ -17,16 +17,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $dateLost = trim($_POST["date_lost"] ?? "");
     $location = trim($_POST["location"] ?? "");
 
-    if ($itemName === "" || $category === "" ||
-        $dateLost === "" || $location === "") {
+    if (
+        $itemName === "" ||
+        $category === "" ||
+        $dateLost === "" ||
+        $location === ""
+    ) {
         $message = "Please fill in all required fields.";
         $messageType = "error";
+
     } elseif (
         !DateTime::createFromFormat('!Y-m-d', $dateLost) ||
         DateTime::createFromFormat('!Y-m-d', $dateLost)->format('Y-m-d') !== $dateLost
     ) {
         $message = "Please enter a valid date.";
         $messageType = "error";
+
+    } elseif ($dateLost > date('Y-m-d')) {
+        $message = "Date lost cannot be in the future.";
+        $messageType = "error";
+
     } else {
         $stmt = $conn->prepare(
             "INSERT INTO lost_items
