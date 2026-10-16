@@ -2,7 +2,7 @@
 # Campus Lost and Found Management System (CLFMS)
 
 ## Project Overview
-The Campus Lost and Found Management System helps users report items lost on campus and view submitted reports.
+The Campus Lost and Found Management System helps users report items lost on campus and view submitted report.
 
 ## Module Developed
 **Report Lost Item**
