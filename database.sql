@@ -1,9 +1,6 @@
-
 CREATE DATABASE IF NOT EXISTS clfms;
 
-USE clfms;
-
-CREATE TABLE IF NOT EXISTS lost_items (
+CREATE TABLE IF NOT EXISTS clfms.lost_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     item_name VARCHAR(100) NOT NULL,
     category VARCHAR(50) NOT NULL,
@@ -12,3 +9,4 @@ CREATE TABLE IF NOT EXISTS lost_items (
     location VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
